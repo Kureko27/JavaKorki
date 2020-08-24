@@ -1,0 +1,39 @@
+public static void square5(int x, int n) {
+        int licznik = 0;
+        for (int m = n; m > 0; m--) {
+            for (int i = 0; i < x; i++) { // liczba wierszy do wydrukowania
+                for (int j = 0; j < x; j++) { // drukowanie znakow w danej linii - drukowanie wiersza (kolumn z danego wiersza)
+                    if (i == 0 || i == x - 1 || j == 0 || j == x - 1) { // obramowanie
+                        if (i == 0 && licznik < x) { //pierwsza górna ramka
+                            System.out.print("X "); // moze zmienna na potem zamiast sout?
+                            licznik++;
+                        } else if(i == x-1 && licznik > x*3*n ) {//ostania dolna ramka
+                            System.out.print("X ");
+                            licznik++;
+                        } else {
+                            licznik ++;
+                        }
+
+                    } else if (i + j == (x + 1) / 2) {
+                        System.out.print("X ");
+                    } else if (j - i == x / 2 - 1) {
+                        System.out.print("X ");
+                    } else if (i - j == x / 2 - 1) {
+                        System.out.print("X ");
+                    } else if (i + j == x + (x / 2 - 2)) {
+                        System.out.print("X ");
+                    } else {
+                        System.out.print("  "); // drukowanie pustych miejsc pomiedzy
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+    
+    
+    public static void main(String[] args) {
+        
+        square5(11, 3);
+        square5(10, 3);
+    }
